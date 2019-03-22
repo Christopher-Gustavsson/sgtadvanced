@@ -44,13 +44,52 @@ server.get("/api/grades", (req, res)=>{
             }
             //send the data back to the client
             res.send(output);
-        })
+        });
     });
 })
 
 
 server.post("/api/grades", (request, response)=>{
 
+    //check the body object and see if any data was not sent
+    if(request.body.name === undefined || request.body.course === undefined || request.body.grade === undefined)
+    {
+        //respond to the client with an appropriate error message
+        response.send({
+            success: false,
+            error: "invalid name, course, or grade"
+        });
+
+        return;
+    }
+
+    //connect to the database
+    db.connect(() => {
+
+        const name = request.body.name.split(" ");
+
+        //const query = 'INSERT INTO `grades` SET `surname`="' + name[1] + '", `givenname`="' + name[0] + '", `course`="' + request.body.course + '", `grade`=' + request.body.grade + ', `added`=NOW()';
+        const query = 'INSERT INTO `grades` SET `surname`="' + name.slice(1).join(" ") + '", `givenname`="' + name[0] + '", `course`="' + request.body.course + '", `grade`=' + request.body.grade + ', `added`=NOW()';
+        
+        
+        db.query(query, (error, result)=>{
+            if(!error)
+            {
+                response.send({
+                    success : true,
+                    new_id: result.insertId
+                });
+            }
+            else
+            {
+                response.send({
+                    success: false,
+                    error
+                });
+            }
+        });
+
+    }); 
 });
 
 server.listen(3001, ()=>{
