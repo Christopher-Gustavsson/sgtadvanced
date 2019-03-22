@@ -4,6 +4,7 @@ const express = require("express"); //load the express library into the file
 const server = express();
 
 
+// server.use(express.static(__dirname + "/html"));
 server.use(express.static(__dirname + "/html"));
 
 
@@ -42,3 +43,7 @@ server.listen(3001, ()=>{
     console.log("server is running on port 3001");
     console.log("carrier has arrived");
 });
+
+/*
+take all front end sgt stuff and put it in the html folder in here 
+*/ 

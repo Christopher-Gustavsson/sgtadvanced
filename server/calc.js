@@ -2,6 +2,7 @@
 
 function doMath(num1, num2, operator)
 {
+    var result = 0;
     switch(operator)
     {
         case "+":
@@ -18,10 +19,10 @@ function doMath(num1, num2, operator)
 }
 
 var n1 = parseInt(process.argv[2]);
-var op = parseInt(process.argv[3]);
+var op = process.argv[3];
 var n2 = parseInt(process.argv[4]);
 
-console.log(process.argv);
+// console.log(process.argv);
 
 var answer = doMath(n1, n2, op);
 
