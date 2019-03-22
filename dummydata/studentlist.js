@@ -13,3 +13,5 @@ var list = {
 // INSERT INTO `grades` SET `surname`="Chris", `givenname`="Gustavsson", `course`="math", `grade`=80, `added`=NOW() -- this can insert 1
 
 //INSERT INTO `grades` (`surname`, `givenname`, `course`, `grade`) VALUES ("Gustavsson", "Christopher", "math", 80), ("postman", "postman", "math", 80) this can insert many
+
+//DELETE FROM `grades` WHERE `id` =10
