@@ -1,1 +1,4 @@
 node_modules
+mysqlcreds.js 
+# do not want to include sensitive credential data so other people don't see it.
+# the credentials of your database here are going to be different than the credentials on your server
