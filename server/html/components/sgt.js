@@ -250,8 +250,8 @@ class SGT_template{
 	{
 		console.log("Get Server Data Clicked");
 		$.ajax({
-			url: "http://s-apis.learningfuze.com/sgt/get",
-			method: "POST",
+			url: "api/grades",
+			method: "get",
 			data: {
 				api_key: "AlK0e9FN3A"
 			},

@@ -26,7 +26,7 @@ function startApp(){
 	});
 	SGT.addEventHandlers();
 
-	//SGT.getServerData();
+	SGT.getServerData();
 }
 
 // @channel when working on the SGT, COMMENT OUT the SGT code in script,.js from 18 to 27.  The tester will be making its own sgt objects.  The code you are commenting out is what you should be using after the tester works.
